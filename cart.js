@@ -2,7 +2,7 @@ function addToCart(name, price) {
     let cart = JSON.parse(localStorage.getItem('coffeeCart')) || [];
     cart.push({ name: name, price: price });
     localStorage.setItem('coffeeCart', JSON.stringify(cart));
-    alert(name + " (BWP" + price.toFixed(2) + ") has been added to your cart!");
+    alert(name + " (BWP " + price.toFixed(2) + ") has been added to your cart!");
 }
 
 function displayCart() {
@@ -14,7 +14,7 @@ function displayCart() {
     
     if (cart.length === 0) {
         cartList.innerHTML = "<p>Your cart is empty. Go explore the menu!</p>";
-        if (totalDisplay) totalDisplay.innerText = "BWP0.00";
+        if (totalDisplay) totalDisplay.innerText = "BWP 0.00";
         return;
     }
     
@@ -27,14 +27,14 @@ function displayCart() {
         itemCard.className = "product-card";
         itemCard.style.marginBottom = "1rem";
         itemCard.innerHTML = `
-            <h4>BWP{item.name}</h4>
-            <p style="font-weight: bold; color: #e8c595; margin: 0;">Cost: BWPBWP{item.price.toFixed(2)}</p>
+            <h4>${item.name}</h4>
+            <p style="font-weight: bold; color: #e8c595; margin: 0;">Cost: BWP ${item.price.toFixed(2)}</p>
         `;
         cartList.appendChild(itemCard);
     });
     
     if (totalDisplay) {
-        totalDisplay.innerText = "BWP" + total.toFixed(2);
+        totalDisplay.innerText = "BWP " + total.toFixed(2);
     }
 }
 
@@ -51,20 +51,20 @@ function checkoutToWhatsApp() {
         return;
     }
     
-    const phoneNumber = "26773214110"; 
+    // Remember to put your real mobile phone number setup here!
+    const phoneNumber = "1234567890"; 
     
     let message = "☕ *New Quick Koffiee Order* ☕\n\n";
     let total = 0;
     
     cart.forEach((item, index) => {
-        message += (index + 1) + ". " + item.name + " - BWP" + item.price.toFixed(2) + "\n";
+        message += (index + 1) + ". " + item.name + " - BWP " + item.price.toFixed(2) + "\n";
         total += item.price;
     });
     
-    message += "\n💰 *Total Bill:* BWP" + total.toFixed(2) + "\n\nThank you for ordering with Quick Koffiee!";
+    message += "\n💰 *Total Bill:* BWP " + total.toFixed(2) + "\n\nThank you for ordering with Quick Koffiee!";
     
     const whatsappURL = "https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + encodeURIComponent(message);
-    
     window.open(whatsappURL, '_blank');
 }
 
