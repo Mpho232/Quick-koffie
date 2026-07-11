@@ -43,4 +43,29 @@ function clearCart() {
     displayCart();
 }
 
+function checkoutToWhatsApp() {
+    const cart = JSON.parse(localStorage.getItem('coffeeCart')) || [];
+    
+    if (cart.length === 0) {
+        alert("Your cart is empty! Add some coffee before checking out.");
+        return;
+    }
+    
+    const phoneNumber = "26773214110"; 
+    
+    let message = "☕ *New Quick Koffiee Order* ☕\n\n";
+    let total = 0;
+    
+    cart.forEach((item, index) => {
+        message += (index + 1) + ". " + item.name + " - $" + item.price.toFixed(2) + "\n";
+        total += item.price;
+    });
+    
+    message += "\n💰 *Total Bill:* $" + total.toFixed(2) + "\n\nThank you for ordering with Quick Koffiee!";
+    
+    const whatsappURL = "https://api.whatsapp.com/send?phone=" + phoneNumber + "&text=" + encodeURIComponent(message);
+    
+    window.open(whatsappURL, '_blank');
+}
+
 document.addEventListener("DOMContentLoaded", displayCart);
