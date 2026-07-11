@@ -51,8 +51,7 @@ function checkoutToWhatsApp() {
         return;
     }
     
-    // Remember to put your real mobile phone number setup here!
-    const phoneNumber = "1234567890"; 
+    const phoneNumber = "26773214110"; 
     
     let message = "☕ *New Quick Koffiee Order* ☕\n\n";
     let total = 0;
