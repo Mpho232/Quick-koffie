@@ -77,11 +77,12 @@ nav a:hover, nav a.active {
 
 main {
     max-width: 600px;
-    margin: 3rem auto;
-    padding: 0 1rem;
+    margin: 3rem auto 0 auto;
+    padding: 0 1rem 3rem 1rem;
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
+    border-bottom: 2px solid #e8c595;
 }
 
 section.hero-section, section.featured-products {
@@ -115,47 +116,7 @@ article.product-card h4 {
 
 footer {
     text-align: center;
-    padding: 1.5rem;
+    padding: 2rem 1.5rem;
     background-color: #4a2c11;
     color: #e8c595;
-    margin-top: 5rem;
-}
-
-
-section.hero-section, section.featured-products {
-    background-color: #784b36;
-    padding: 2rem;
-    border-radius: 24px;
-    margin-bottom: 2rem;
-}
-
-article.product-card {
-    background-color: #784b36;
-    padding: 1.5rem;
-    border-radius: 20px;
-    border: 2px solid #fff;
-    margin-bottom: 1.5rem;
-    text-align: center;
-}
-
-article.product-card figure img {
-    border-radius: 16px;
-    border: 2px solid #fff;
-    width: 100%;
-    height: auto;
-    max-width: 280px;
-    margin-bottom: 1rem;
-}
-
-article.product-card h4 {
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
-}
-
-footer {
-    text-align: center;
-    padding: 1.5rem;
-    background-color: #4a2c11;
-    color: #e8c595;
-    margin-top: 4rem;
 }
